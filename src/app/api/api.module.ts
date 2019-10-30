@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PiosService } from './pios.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { PiosService } from './pios.service';
+import { SnapshotsService } from './snapshots.service';
 
 @NgModule({
 	declarations: [],
@@ -10,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 		HttpClientModule
 	],
 	providers: [
-		PiosService
+		PiosService,
+		SnapshotsService
 	]
 })
 export class ApiModule { }
