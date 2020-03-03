@@ -16,13 +16,20 @@ describe('AppComponent', () => {
 
 	it('should create the app', () => {
 		const fixture = TestBed.createComponent(AppComponent);
-		const app = fixture.debugElement.componentInstance;
+		const app = fixture.componentInstance;
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have as title '{ whois.kow }'`, () => {
+	it(`should have as title 'whois'`, () => {
 		const fixture = TestBed.createComponent(AppComponent);
-		const app = fixture.debugElement.componentInstance;
-		expect(app.title).toEqual('{ whois.kow }');
+		const app = fixture.componentInstance;
+		expect(app.title).toEqual('whois');
+	});
+
+	it('should render title', () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		fixture.detectChanges();
+		const compiled = fixture.nativeElement;
+		expect(compiled.querySelector('.content span').textContent).toContain('whois app is running!');
 	});
 });
