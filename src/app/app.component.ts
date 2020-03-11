@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PiosService } from './pios.service';
 
 @Component({
 	selector: 'kow-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'whois';
+
+	constructor(private pios: PiosService) { }
+
+	onSearched(domain: string) {
+		const result = this.pios.ask(domain);
+		result.subscribe(console.log);
+	}
 }
