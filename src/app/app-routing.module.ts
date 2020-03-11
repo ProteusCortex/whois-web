@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ResultsComponent } from './results/results.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+	{ path: 'results', component: ResultsComponent },
+	{ path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes, { enableTracing: true })],
