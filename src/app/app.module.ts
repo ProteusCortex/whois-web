@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,9 +10,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { PiosService } from './pios.service';
 import { ResultsComponent } from './results/results.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 		NotFoundComponent
 	],
 	imports: [
+		CommonModule,
 		BrowserModule,
 		ReactiveFormsModule,
 		FontAwesomeModule,
