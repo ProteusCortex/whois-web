@@ -1,1 +1,33 @@
-<p>results works!</p>
+<div class="container">
+
+	<div class="row">
+		<div class="col" id="header">
+			<h1>{{ ( result | async )?.domain.name }}</h1>
+		</div>
+		<!-- /#header.col -->
+	</div>
+	<!-- /.row -->
+
+	<div class="row" id="details">
+
+		<div class="col">
+			<p>Domain Handle: {{ ( result | async )?.domain.handle }}</p>
+			<p>Protocol Number: {{ ( result | async )?.domain.protocolNumber }}</p>
+			<p>Creation Date: {{ ( result | async )?.domain.creationDate }}</p>
+			<p>Expiration Date: {{ ( result | async )?.domain.expirationDate }}</p>
+			<p>Updated Date: {{ ( result | async )?.domain.lastUpdate }}</p>
+			<p>Registrar: {{ ( result | async )?.registrar.name }}</p>
+			<p>Registrar Referral URL: {{ ( result | async )?.registrar.url }}</p>
+			<p>Registrar Email: {{ ( result | async )?.registrar.email }}</p>
+			<div *ngFor="let ns of ( result | async)?.nameServers">
+				<p>Name Server: {{ ns.name }}</p>
+			</div>
+		</div>
+		<!-- /.col -->
+
+	</div>
+	<!-- /#details.row -->
+
+</div>
+<!-- /.container -->
+
