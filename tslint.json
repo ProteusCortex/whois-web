@@ -4,7 +4,7 @@
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
-      "severity": "warn"
+      "severity": "warning"
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
@@ -12,20 +12,20 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "kow",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "kow",
       "kebab-case"
     ],
     "import-blacklist": [
       true,
       "rxjs/Rx"
-		],
-		"indent": [true, "tabs", 4],
+    ],
+    "indent": [true, "tabs", 4],
     "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [
@@ -61,7 +61,6 @@
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
-    "no-use-before-declare": true,
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,

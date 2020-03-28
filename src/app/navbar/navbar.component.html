@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href="/" class="navbar-brand">{{ "{ whois.KOW }" }}</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_content"
+		aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button> <!-- /.navbar-toggler -->
+
+	<div class="collapse navbar-collapse" id="navbar_content">
+
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a href="#" class="nav-link">Home <span class="sr-only">(current)</span> </a>
+			</li>
+		</ul>
+		<!-- /.navbar-nav mr-auto -->
+
+		<form [formGroup]="searchForm" (ngSubmit)="search()" class="form-inline my-2 my-lg-0">
+			<input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" name="domain"
+				formControlName="domain">
+			<div *ngIf="domain.invalid && (domain.dirty || domain.touched)" class="invalid-feedback">Please provide a
+				valid .gr/.ελ domain.</div>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+				<fa-icon [icon]="['fas', 'search']"></fa-icon>
+			</button>
+		</form>
+		<!-- /.form-inline my-2 my-lg-0 -->
+
+	</div>
+	<!-- /#navbar_content.collapse navbar-collapse -->
+</nav>
+<!-- /.navbar navbar-expand-lg navbar-light bg-light -->
