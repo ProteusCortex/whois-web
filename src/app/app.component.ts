@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PiosService } from './pios.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'kow-root',
@@ -9,10 +9,10 @@ import { PiosService } from './pios.service';
 export class AppComponent {
 	title = 'whois';
 
-	constructor(private pios: PiosService) { }
+	constructor(private router: Router) { }
 
 	onSearched(domain: string) {
-		const result = this.pios.ask(domain);
-		result.subscribe(console.log);
+		console.log(`Got search! ${domain}`);
+		this.router.navigate(['/results', { domain }]);
 	}
 }
