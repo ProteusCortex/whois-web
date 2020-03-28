@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+
+			<form [formGroup]="searchForm" (ngSubmit)="search()">
+				<div class="form-group">
+
+					<input type="search" class="form-control" placeholder="domain.gr" aria-label="Search" name="domain"
+						formControlName="domain">
+					<div *ngIf="domain.invalid && (domain.dirty || domain.touched)" class="invalid-feedback">Please
+						provide
+						a
+						valid
+						.gr/.ελ domain.</div>
+
+				</div>
+				<!-- /.form-group -->
+
+				<button class="btn btn-lg btn-outline-success" type="submit">
+					<fa-icon [icon]="['fas', 'search']"></fa-icon> Search
+				</button>
+
+			</form>
+			<!-- /.form-inline my-2 my-lg-0 -->
+
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+</div>
+<!-- /.container -->
