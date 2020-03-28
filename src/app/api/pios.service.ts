@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment as env } from '../environments/environment';
-import { IPiosResult } from './interfaces/pios-result.interface';
+import { environment as env } from '../../environments/environment';
+import { IPiosResult } from '../interfaces/pios-result.interface';
 
 @Injectable({
 	providedIn: 'root'
