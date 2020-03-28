@@ -7,12 +7,14 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { ApiModule } from './api/api.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DomainHistoryComponent } from './domain-history/domain-history.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { PiosService } from './pios.service';
 import { ResultsComponent } from './results/results.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -20,17 +22,20 @@ import { ResultsComponent } from './results/results.component';
 		AppComponent,
 		NavbarComponent,
 		ResultsComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		SearchComponent,
+		DomainHistoryComponent
 	],
 	imports: [
 		CommonModule,
 		BrowserModule,
 		ReactiveFormsModule,
 		FontAwesomeModule,
+		ApiModule,
 		AppRoutingModule,
 		HttpClientModule
 	],
-	providers: [PiosService],
+	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
