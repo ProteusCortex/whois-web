@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { PiosService } from '../api/pios.service';
 import { IPiosResult } from '../interfaces/pios-result.interface';
+import { Domain, Registrar } from '../models';
 
 @Component({
 	selector: 'kow-results',
@@ -12,7 +13,9 @@ import { IPiosResult } from '../interfaces/pios-result.interface';
 })
 export class ResultsComponent implements OnInit {
 
-	result: Observable<IPiosResult>;
+	private piosRequest: Observable<IPiosResult>;
+	domain: string;
+	result = new BehaviorSubject<IPiosResult>(null);
 
 	constructor(
 		private route: ActivatedRoute,
@@ -21,14 +24,18 @@ export class ResultsComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.result = this.route.paramMap.pipe(
+		this.piosRequest = this.route.paramMap.pipe(
 			switchMap((params: ParamMap) => {
-				console.log(params);
-				return this.pios.ask(params.get('domain'));
+				this.domain = params.get('domain');
+				this.result.next(null);
+				return this.pios.ask(this.domain);
 			})
 		);
 
-		this.result.subscribe(console.log);
+		this.piosRequest.subscribe(res => {
+			console.log(res);
+			return this.result.next(res);
+		});
 	}
 
 }

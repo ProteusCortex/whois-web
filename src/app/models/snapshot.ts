@@ -7,4 +7,5 @@ export class Snapshot implements IPiosResult {
 	public domain: Domain;
 	public registrar: Registrar;
 	public nameServers: NameServer[];
+	public isRegistered: boolean;
 }
