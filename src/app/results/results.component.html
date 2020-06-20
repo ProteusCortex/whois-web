@@ -1,33 +1,67 @@
 <div class="container">
 
 	<div class="row">
-		<div class="col" id="header">
-			<h1>{{ ( result | async )?.domain.name }}</h1>
+		<div class="col text-center" id="header">
+			<h1>{{ domain }}</h1>
 		</div>
 		<!-- /#header.col -->
 	</div>
 	<!-- /.row -->
 
-	<div class="row" id="details">
-
+	<div class="row">
 		<div class="col">
-			<p>Domain Handle: {{ ( result | async )?.domain.handle }}</p>
-			<p>Protocol Number: {{ ( result | async )?.domain.protocolNumber }}</p>
-			<p>Creation Date: {{ ( result | async )?.domain.creationDate }}</p>
-			<p>Expiration Date: {{ ( result | async )?.domain.expirationDate }}</p>
-			<p>Updated Date: {{ ( result | async )?.domain.lastUpdate }}</p>
-			<p>Registrar: {{ ( result | async )?.registrar.name }}</p>
-			<p>Registrar Referral URL: {{ ( result | async )?.registrar.url }}</p>
-			<p>Registrar Email: {{ ( result | async )?.registrar.email }}</p>
-			<div *ngFor="let ns of ( result | async)?.nameServers">
-				<p>Name Server: {{ ns.name }}</p>
-			</div>
+			<dl class="row align-" *ngIf="result | async as res">
+				<dt class="col-sm-6 text-right ml-auto">Domain Status</dt>
+				<dd class="col-sm-6 mr-auto" *ngIf="res.isRegistered"><span class="badge badge-success">REGISTERED</span></dd>
+				<dd class="col-sm-6 mr-auto" *ngIf="!res.isRegistered"><span class="badge badge-success">UNREGISTERED</span></dd>
+			</dl>
 		</div>
 		<!-- /.col -->
+	</div>
+	<!-- /.row -->
 
+	<div class="row" id="details" *ngIf="result | async as res">
+		<div class="col" *ngIf="res.isRegistered">
+
+			<dl class="row">
+				<dt class="col-sm-6 text-right">Domain Handive</dt>
+				<dd class="col-sm-6">{{ res.domain.handle }}</dd>
+
+				<dt class="col-sm-6 text-right">Protocol Number</dt>
+				<dd class="col-sm-6">{{ res.domain.protocolNumber }}</dd>
+
+				<dt class="col-sm-6 text-right">Creation Date</dt>
+				<dd class="col-sm-6">{{ res.domain.creationDate | date:'medium' }}</dd>
+
+				<dt class="col-sm-6 text-right">Expiration Date</dt>
+				<dd class="col-sm-6">{{ res.domain.expirationDate | date:'medium' }}</dd>
+
+				<dt class="col-sm-6 text-right">Last Update</dt>
+				<dd class="col-sm-6">{{ res.domain.lastUpdate }}</dd>
+
+				<dt class="col-sm-6 text-right">Registrar</dt>
+				<dd class="col-sm-6">{{ res.registrar.name }}</dd>
+
+				<dt class="col-sm-6 text-right">Registrar Referral URL</dt>
+				<dd class="col-sm-6">{{ res.registrar.url }}</dd>
+
+				<dt class="col-sm-6 text-right">Registrar Email</dt>
+				<dd class="col-sm-6">{{ res.registrar.email }}</dd>
+
+				<dt class="col-sm-6 text-right">Name Servers</dt>
+				<dd class="col-sm-6">
+					<ul>
+						<li *ngFor="let ns of res.nameServers">{{ ns.name }}</li>
+					</ul>
+				</dd>
+				<!-- /#nameServers.row -->
+			</dl>
+			<!-- /.row -->
+
+		</div>
+		<!-- /.col -->
 	</div>
 	<!-- /#details.row -->
 
 </div>
 <!-- /.container -->
-
