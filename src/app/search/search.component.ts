@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'kow-search',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 	styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+	faSearch = faSearch;
+
 	searchForm = new FormGroup({
 		domain: new FormControl('', [Validators.required, Validators.minLength(4)])
 	});

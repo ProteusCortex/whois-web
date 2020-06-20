@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'kow-navbar',
@@ -7,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 	styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+	faSearch = faSearch;
+
 	@Output() searched = new EventEmitter<string>();
 	searchForm = new FormGroup({
 		domain: new FormControl('', [Validators.required, Validators.minLength(4)])
