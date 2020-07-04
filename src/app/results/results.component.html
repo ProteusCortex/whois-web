@@ -10,17 +10,19 @@
 
 	<div class="row">
 		<div class="col">
-			<dl class="row align-" *ngIf="result | async as res">
+			<dl class="row" *ngIf="!working && result | async as res">
 				<dt class="col-sm-6 text-right ml-auto">Domain Status</dt>
-				<dd class="col-sm-6 mr-auto" *ngIf="res.isRegistered"><span class="badge badge-success">REGISTERED</span></dd>
-				<dd class="col-sm-6 mr-auto" *ngIf="!res.isRegistered"><span class="badge badge-success">UNREGISTERED</span></dd>
+				<dd class="col-sm-6 mr-auto" *ngIf="res.isRegistered"><span
+						class="badge badge-success">REGISTERED</span></dd>
+				<dd class="col-sm-6 mr-auto" *ngIf="!res.isRegistered"><span
+						class="badge badge-success">UNREGISTERED</span></dd>
 			</dl>
 		</div>
 		<!-- /.col -->
 	</div>
 	<!-- /.row -->
 
-	<div class="row" id="details" *ngIf="result | async as res">
+	<div class="row" id="details" *ngIf="!working && result | async as res">
 		<div class="col" *ngIf="res.isRegistered">
 
 			<dl class="row">
@@ -37,7 +39,7 @@
 				<dd class="col-sm-6">{{ res.domain.expirationDate | date:'medium' }}</dd>
 
 				<dt class="col-sm-6 text-right">Last Update</dt>
-				<dd class="col-sm-6">{{ res.domain.lastUpdate }}</dd>
+				<dd class="col-sm-6">{{ res.domain.lastUpdate | date:'medium' }}</dd>
 
 				<dt class="col-sm-6 text-right">Registrar</dt>
 				<dd class="col-sm-6">{{ res.registrar.name }}</dd>
@@ -62,6 +64,23 @@
 		<!-- /.col -->
 	</div>
 	<!-- /#details.row -->
+
+	<div class="row" id="loading" *ngIf="working">
+		<div class="col d-flex align-items-center">
+			<div class="spinner-grow ml-auto mr-auto m-5" role="status">
+				<span class="sr-only">Fetching results...</span>
+			</div>
+		</div>
+		<!-- /.col -->
+	</div>
+
+	<div class="row text-center" id="controls">
+		<div class="col">
+			<button class="btn btn-primary" (click)="refresh()">Refresh</button>
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /#controls.row -->
 
 </div>
 <!-- /.container -->
