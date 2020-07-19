@@ -84,7 +84,7 @@ module.exports = {
             "always"
         ],
         "camelcase": "error",
-        "comma-dangle": "off",
+        "comma-dangle": "error",
         "complexity": "off",
         "constructor-super": "error",
         "dot-notation": "error",
@@ -106,12 +106,12 @@ module.exports = {
             "undefined"
         ],
         "id-match": "error",
-        "import/no-deprecated": "warn",
+        "import/no-deprecated": "off",
         "import/order": "off",
-        "jsdoc/check-alignment": "error",
-        "jsdoc/check-indentation": "error",
-        "jsdoc/newline-after-description": "error",
-        "jsdoc/no-types": "error",
+        "jsdoc/check-alignment": "off",
+        "jsdoc/check-indentation": "off",
+        "jsdoc/newline-after-description": "off",
+        "jsdoc/no-types": "off",
         "max-classes-per-file": "off",
         "max-len": [
             "error",
@@ -178,7 +178,7 @@ module.exports = {
             "error",
             "never"
         ],
-        "prefer-arrow/prefer-arrow-functions": "error",
+        "prefer-arrow/prefer-arrow-functions": "off",
         "quote-props": [
             "error",
             "as-needed"
