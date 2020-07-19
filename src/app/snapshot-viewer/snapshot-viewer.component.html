@@ -1,0 +1,76 @@
+<div class="card" id="snapshot_viewer_card">
+
+	<h5 class="card-header">
+		<span *ngIf="!snapshot">Waiting for snapshot...</span>
+		<span>{{ snapshot?.domain.name }}</span>
+
+		<span class="float-right" *ngIf="snapshot">
+			<span class="badge badge-success" *ngIf="snapshot.isRegistered">REGISTERED</span>
+			<span class="badge badge-danger" *ngIf="!snapshot.isRegistered">NOT REGISTERED</span>
+		</span>
+	</h5>
+	<!-- /.card-header -->
+
+	<ul class="list-group list-group-flush" *ngIf="snapshot">
+
+		<li class="list-group-item">
+			<span>Domain Handle</span>
+			<span class="float-right">{{ snapshot?.domain.handle }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Protocol Number</span>
+			<span class="float-right">{{ snapshot?.domain.protocolNumber }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Creation Date</span>
+			<span class="float-right">{{ snapshot?.domain.creationDate | date:'medium' }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Expiration Date</span>
+			<span class="float-right">{{ snapshot?.domain.expirationDate | date:'medium' }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Last Update</span>
+			<span class="float-right">{{ snapshot?.domain.lastUpdate | date:'medium' }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Registrar</span>
+			<span class="float-right">{{ snapshot?.registrar.name }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Registrar Referral URL</span>
+			<span class="float-right">{{ snapshot?.registrar.url }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Registrar Email</span>
+			<span class="float-right">{{ snapshot?.registrar.email }}</span>
+		</li>
+
+		<li class="list-group-item">
+			<span>Name Servers</span>
+			<span class="float-right">
+				<ul>
+					<li *ngFor="let ns of snapshot?.nameServers">{{ ns.name }}</li>
+				</ul>
+			</span>
+		</li>
+
+	</ul>
+	<!-- /.list-group list-group-flush -->
+
+	<div class="card-body d-flex justify-content-center" *ngIf="!snapshot">
+		<div class="spinner-border text-primary m-auto">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	<!-- /.card-body -->
+
+</div>
+<!-- /#snapshot_viewer_card.card -->
