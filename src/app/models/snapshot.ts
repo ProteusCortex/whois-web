@@ -11,4 +11,18 @@ export class Snapshot implements IPiosResult {
 	public isRegistered: boolean;
 	public createdAt: Date;
 	public updatedAt: Date;
+
+	public constructor(result: IPiosResult) {
+		// This is not a snapshot fetched from the DB,
+		// so it has no ID. Make this obvious to all consumers.
+		this.id = -1;
+
+		// Save the rest of the properties.
+		this.isRegistered = result.isRegistered;
+		this.domain = result.domain;
+		this.registrar = result.registrar;
+		this.nameServers = result.nameServers;
+
+		// The rest should be left null
+	}
 }
