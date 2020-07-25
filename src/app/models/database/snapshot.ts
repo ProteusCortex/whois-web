@@ -1,4 +1,4 @@
-import { IPiosResult } from '../interfaces/pios-result.interface';
+import { IPiosResult } from '../../interfaces/pios-result.interface';
 import { Domain } from './domain';
 import { Registrar } from './registrar';
 import { NameServer } from './name-server';
