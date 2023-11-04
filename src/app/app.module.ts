@@ -39,7 +39,7 @@ import { SearchComponent } from './search/search.component';
 	bootstrap: [AppComponent]
 })
 export class AppModule {
-	// constructor(library: FaIconLibrary) {
-	// 	library.addIconPacks(fas);
-	// }
+	constructor(library: FaIconLibrary) {
+		library.addIconPacks(fas);
+	}
 }
