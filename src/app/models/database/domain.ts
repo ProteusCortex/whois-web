@@ -1,3 +1,5 @@
+import { Address } from './address';
+
 export class Domain {
 	public id: number;
 	public name: string;
@@ -6,6 +8,7 @@ export class Domain {
 	public creationDate: Date;
 	public expirationDate: Date;
 	public lastupdate: Date;
+	public addresses: Address[];
 	public createdAt: Date;
 	public updatedAt: Date;
 }
