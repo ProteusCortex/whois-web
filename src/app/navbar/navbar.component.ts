@@ -8,9 +8,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 	styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+	@Output() searched = new EventEmitter<string>();
 	faSearch = faSearch;
 
-	@Output() searched = new EventEmitter<string>();
 	searchForm = new FormGroup({
 		domain: new FormControl('', [Validators.required, Validators.minLength(4)])
 	});
