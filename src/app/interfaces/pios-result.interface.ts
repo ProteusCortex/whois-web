@@ -1,6 +1,4 @@
-import { Domain } from '../models/domain';
-import { NameServer } from '../models/name-server';
-import { Registrar } from '../models/registrar';
+import { Domain, NameServer, Registrar } from '../models';
 
 export interface IPiosResult {
 	domain: Domain;
