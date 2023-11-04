@@ -5,13 +5,8 @@
 			<form [formGroup]="searchForm" (ngSubmit)="search()">
 				<div class="form-group">
 
-					<input type="search" class="form-control" placeholder="domain.gr" aria-label="Search" name="domain"
-						formControlName="domain">
-					<div *ngIf="domain.invalid && (domain.dirty || domain.touched)" class="invalid-feedback">Please
-						provide
-						a
-						valid
-						.gr/.ελ domain.</div>
+					<input type="search" class="form-control" placeholder="domain.gr" aria-label="Search" name="domain" formControlName="domain">
+					<div *ngIf="domain.invalid && (domain.dirty || domain.touched)" class="invalid-feedback">Please provide a valid .gr/.ελ domain.</div>
 
 				</div>
 				<!-- /.form-group -->
